@@ -1,0 +1,9 @@
+table{
+    visibility: hidden;
+}
+table th, table td{
+    padding: 8px;
+}
+table, th, td{
+    border: 2px solid pink;
+}
