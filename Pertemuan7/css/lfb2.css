@@ -1,0 +1,25 @@
+body{
+background-color: pink;
+}
+.container {
+display: flex;
+flex-direction: row;
+font-size: 30px;
+text-align: center;
+justify-content: center;
+}
+
+.img{
+width: 274px;
+height: 100px;
+margin: 5px;
+flex-direction:row;
+flex-wrap: wrap;
+}
+
+.img-item{
+width: 160px;
+margin: 5px;
+flex-direction: row;
+flex-wrap: wrap;
+}

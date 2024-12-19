@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pemesanan Cluster</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+        form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin: auto;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #5bb0f5;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #477cc1;
+        }
+        .card {
+            background-color: white;
+            padding: 20px;
+            margin: auto;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<form id="formPemesanan" onsubmit="return submitForm(event)">
+    <h2>Form Pemesanan Products Qhouse</h2>
+    <div class="form-group">
+        <label for="nama">Nama Pembeli:</label>
+        <input type="text" id="nama" name="nama" required>
+    </div>
+    <div class="form-group">
+        <label for="telp">Nomor Telepon:</label>
+        <input type="tel" id="telp" name="telp" required>
+    </div>
+    <div class="form-group">
+        <label for="alamat">Alamat:</label>
+        <input type="text" id="alamat" name="alamat" required>
+    </div>
+    <div class="form-group">
+        <label for="kategori">Kategori Products:</label>
+        <select id="kategori" name="kategori" required>
+            <option value="">--Pilih Kategori--</option>
+            <option value="Mega Cluster Unpad">Mega Cluster Unpad</option>
+            <option value="Ruko The IPB">Ruko The IPB</option>
+            <option value="UGM Smartliving">UGM Smartliving</option>
+            <option value="Ruko The Telkom">Ruko The Telkom</option>
+            <option value="Smart Cluster Its">Smart Cluster Its</option>
+            <option value="Cluster Unbraw">Cluster Unbraw</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="pekerjaan">Pekerjaan:</label>
+        <input type="text" id="pekerjaan" name="pekerjaan" required>
+    </div>
+    <div class="form-group">
+        <label for="nik">NIK:</label>
+        <input type="text" id="nik" name="nik" required>
+    </div>
+    <div class="form-group">
+        <label for="bank">Pilihan Bank:</label>
+        <select id="bank" name="bank" required>
+            <option value="">--Pilih Bank--</option>
+            <option value="Bank BRI">Bank BRI</option>
+            <option value="Bank BCA">Bank BCA</option>
+            <option value="Bank Mandiri">Bank Mandiri</option>
+            <option value="Bank BNI">Bank BNI</option>
+        </select>
+    </div>
+    <button type="submit">Pesan Sekarang</button>
+</form>
+
+<div id="thankYouCard" style="display: none;">
+    <div class="card">
+        <h2>Terima Kasih!</h2>
+        <p>Pemesanan Anda telah diproses, silakan tunggu tahap berikutnya melalui telegram Qhouse!</p>
+        <p><strong>Nama:</strong> <span id="cardNama"></span></p>
+        <p><strong>Nomor Telepon:</strong> <span id="cardTelp"></span></p>
+        <p><strong>Alamat:</strong> <span id="cardAlamat"></span></p>
+        <p><strong>Kategori Products:</strong> <span id="cardKategori"></span></p>
+        <p><strong>Pekerjaan:</strong> <span id="cardPekerjaan"></span></p>
+        <p><strong>NIK:</strong> <span id="cardNIK"></span></p>
+        <p><strong>Bank Pilihan:</strong> <span id="cardBank"></span></p>
+    </div>
+</div>
+
+<script>
+    function submitForm(event) {
+        event.preventDefault();
+
+        document.getElementById("cardNama").textContent = document.getElementById("nama").value;
+        document.getElementById("cardTelp").textContent = document.getElementById("telp").value;
+        document.getElementById("cardAlamat").textContent = document.getElementById("alamat").value;
+        document.getElementById("cardKategori").textContent = document.getElementById("kategori").value;
+        document.getElementById("cardPekerjaan").textContent = document.getElementById("pekerjaan").value;
+        document.getElementById("cardNIK").textContent = document.getElementById("nik").value;
+        document.getElementById("cardBank").textContent = document.getElementById("bank").value;
+
+        document.getElementById("formPemesanan").style.display = "none";
+        document.getElementById("thankYouCard").style.display = "block";
+    }
+</script>
+
+</body>
+</html>
